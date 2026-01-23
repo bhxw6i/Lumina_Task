@@ -1,0 +1,8 @@
+
+{
+  "name": "LuminaTask - Elegant Task Management",
+  "description": "A sophisticated, interactive to-do list application featuring smart AI suggestions, calendar views, and a rich, purple-hued visual experience.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
