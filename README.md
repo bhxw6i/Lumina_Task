@@ -1,19 +1,18 @@
 <div align="center">
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 
-# 📋 Lumina Task - AI-Powered Task Management
+# 📋 Lumina Task - Task Management
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-v16%2B-green?logo=node.js)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-19-blue?logo=react)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-6-purple?logo=vite)](https://vitejs.dev)
-[![Google Gemini API](https://img.shields.io/badge/Google%20Gemini-API-red?logo=google)](https://ai.google.dev/)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen)](https://github.com)
 
 ---
 
-An elegant, modern task management application powered by Google's Gemini AI. Organize, prioritize, and manage your tasks with intelligent AI assistance in a beautiful, responsive interface.
+An elegant, modern task management application. Organize, prioritize, and manage your tasks with powerful features in a beautiful, responsive interface.
 </div>
 
 ## ✨ Features
@@ -24,11 +23,11 @@ An elegant, modern task management application powered by Google's Gemini AI. Or
 - 📌 Pin important tasks for quick access
 - 🗑️ Soft delete with task recovery option
 
-### 🤖 AI-Powered Assistance
-- 🧠 Leverage Google Gemini AI for intelligent task suggestions
+### 💼 Smart Features
+- 🧠 Intelligent task suggestions
 - 💡 Auto-generate task descriptions and subtasks
-- 📝 AI-powered task prioritization recommendations
-- 🎨 Smart task categorization suggestions
+- 📝 Smart task prioritization recommendations
+- 🎨 Automatic task categorization
 
 ### 📊 Views & Organization
 - 📥 **Inbox**: Manage all your tasks in one place
@@ -57,7 +56,7 @@ An elegant, modern task management application powered by Google's Gemini AI. Or
 | **Routing** | ![React Router](https://img.shields.io/badge/React%20Router-7-red?logo=react-router) |
 | **Styling** | ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-blue?logo=tailwindcss) |
 | **UI Components** | ![Lucide React](https://img.shields.io/badge/Lucide%20React-Icons-orange) |
-| **AI Integration** | ![Google Gemini](https://img.shields.io/badge/Google%20Gemini-API-red?logo=google) |
+| **Utilities** | ![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-yellow?logo=javascript) |
 | **State Management** | ![React Hooks](https://img.shields.io/badge/React-Hooks-blue) |
 | **Storage** | ![LocalStorage](https://img.shields.io/badge/Browser-LocalStorage-yellow) |
 
@@ -68,7 +67,6 @@ Before you begin, ensure you have the following installed:
 - ✅ **Node.js** v16 or higher ([Download](https://nodejs.org/))
 - ✅ **npm** or **yarn** package manager
 - ✅ **Git** for version control
-- ✅ **Google Gemini API Key** ([Get Free Key](https://ai.google.dev/))
 
 ## 🚀 Quick Start
 
@@ -83,14 +81,12 @@ cd lumina-task
 npm install
 ```
 
-### Step 3️⃣ Configure API Key
-Create a `.env.local` file in the project root:
+### Step 3️⃣ (Optional) Configure Environment Variables
+Create a `.env.local` file if needed:
 
 ```env
-GEMINI_API_KEY=your_gemini_api_key_here
+# Add any custom environment variables here
 ```
-
-**Get your API key:** Visit [Google AI Studio](https://ai.google.dev/)
 
 ### Step 4️⃣ Run Development Server
 ```bash
@@ -174,12 +170,12 @@ Authentication interface:
 
 ### 🎁 **Services**
 
-#### **geminiService.ts** 🤖
-Google Gemini API integration:
-- 💬 AI task suggestions
-- 📝 Description generation
-- 🏷️ Smart categorization
-- 🎯 Priority recommendations
+#### **geminiService.ts** ⚙️
+Utility service layer:
+- 💬 Task suggestion engine
+- 📝 Description utilities
+- 🏷️ Categorization logic
+- 🎯 Priority calculation
 
 #### **storageService.ts** 💾
 Data persistence layer:
@@ -190,16 +186,13 @@ Data persistence layer:
 
 ## 🔐 Security Notes
 
-- 🔑 **API Keys**: Stored in `.env.local` (excluded from version control via `.gitignore`)
+- 🔑 **API Keys**: Not required for basic functionality
 - 📦 **Local Storage**: User data stored securely in browser's LocalStorage
-- 🚀 **External Calls**: Only Gemini API calls sent to external servers
+- 🚀 **External Dependencies**: Minimal external service requirements
 - 🛡️ **No Sensitive Data**: Personal information never logged or transmitted
 - ✅ **Privacy First**: Full control of your data remains in your browser
 
-**Environment Variables to Keep Secret:**
-```env
-✋ GEMINI_API_KEY=your_secret_key_here  # Never commit this!
-```
+**No sensitive API keys required** for basic functionality!
 
 ## 📝 Available Scripts
 
@@ -271,15 +264,14 @@ npm run dev -- --port 3001
 npx kill-port 3000
 ```
 
-### ❌ API Key Not Working
-**Error:** `API key is invalid or missing`
+### ❌ Tasks Not Loading
+**Error:** `Tasks not displaying correctly`
 
 **Checklist:**
-- ✅ Verify `.env.local` exists in project root
-- ✅ Confirm `GEMINI_API_KEY=` is set correctly (no spaces)
-- ✅ Check API key is valid at [Google AI Studio](https://ai.google.dev/)
-- ✅ Ensure Gemini API is enabled in Google Cloud Console
-- ✅ Restart dev server after updating `.env.local`
+- ✅ Check browser console for JavaScript errors (F12)
+- ✅ Verify LocalStorage is enabled in browser
+- ✅ Clear browser cache and reload
+- ✅ Try a different browser to isolate the issue
 
 ### ❌ Dependencies Installation Fails
 **Error:** `npm ERR! ...`
@@ -318,12 +310,9 @@ npm run build
 
 ## 📄 License
 
-This project is created with Google AI Studio.
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-- View your app: [Google AI Studio](https://ai.studio/apps/temp/1)
-- Licensed under the MIT License - see [LICENSE](LICENSE) file for details
+Licensed under the MIT License - see [LICENSE](LICENSE) file for details
 
 ---
 
@@ -365,13 +354,13 @@ We welcome contributions! Here's how you can help:
 - [Vite Guide](https://vitejs.dev)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 - [Tailwind CSS](https://tailwindcss.com)
-- [Google Gemini API](https://ai.google.dev/)
+- [Web APIs Documentation](https://developer.mozilla.org/en-US/docs/Web/API)
 
 ---
 
 <div align="center">
 
-### Made with ❤️ and powered by AI
+### Made with ❤️
 
 [⬆ Back to Top](#-lumina-task---ai-powered-task-management)
 
