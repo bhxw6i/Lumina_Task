@@ -331,14 +331,6 @@ We welcome contributions! Here's how you can help:
 
 ---
 
-## 📞 Support & Contact
-
-- 📧 Email: [your-email@example.com]
-- 💬 GitHub Issues: [Report bugs or request features](../../issues)
-- 🌐 Website: [Your website/portfolio]
-
----
-
 ## 📚 Additional Resources
 
 - [React Documentation](https://react.dev)
