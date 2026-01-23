@@ -118,8 +118,7 @@ lumina-task/
 │   ├── Sidebar.tsx               # Navigation sidebar component
 │   └── LoadingScreen.tsx         # Loading animation component
 │
-├── 📁 services/                   # Business Logic & APIs
-│   ├── geminiService.ts          # Google Gemini API integration
+├── 📁 services/                   # Business Logic
 │   └── storageService.ts         # LocalStorage data management
 │
 ├── 📄 App.tsx                    # Root application component
@@ -168,13 +167,6 @@ Authentication interface:
 - 📝 User profile creation
 
 ### 🎁 **Services**
-
-#### **geminiService.ts** ⚙️
-Utility service layer:
-- 💬 Task suggestion engine
-- 📝 Description utilities
-- 🏷️ Categorization logic
-- 🎯 Priority calculation
 
 #### **storageService.ts** 💾
 Data persistence layer:
