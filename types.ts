@@ -1,4 +1,3 @@
-
 export enum Priority {
   LOW = 'LOW',
   MEDIUM = 'MEDIUM',
@@ -13,6 +12,7 @@ export interface Task {
   dueDate: string;
   priority: Priority;
   isCompleted: boolean;
+  category?: string;
   createdAt: number;
 }
 
@@ -20,6 +20,7 @@ export interface User {
   id: string;
   email: string;
   displayName: string;
+  token?: string;
 }
 
 export type ViewType = 'inbox' | 'today' | 'calendar' | 'high-priority' | 'completed';
@@ -29,3 +30,14 @@ export interface AuthState {
   isAuthenticated: boolean;
   loading: boolean;
 }
+
+export interface TaskStats {
+  total: number;
+  completed: number;
+  pending: number;
+  highPriority: number;
+  dueToday: number;
+  completionRate: number;
+}
+
+export type BackendStatus = 'connected' | 'waking_up' | 'local_mode' | 'error';

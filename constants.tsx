@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Inbox, 
@@ -16,7 +15,21 @@ import {
   MoreVertical,
   Trash2,
   Edit2,
-  Sparkles
+  Sparkles,
+  Eye,
+  EyeOff,
+  Cloud,
+  CloudOff,
+  Loader2,
+  Check,
+  Activity,
+  Filter,
+  Tag,
+  AlertCircle,
+  TrendingUp,
+  Clock,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
 export const COLORS = {
@@ -29,9 +42,17 @@ export const COLORS = {
 };
 
 export const PRIORITY_COLORS = {
-  LOW: 'bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300',
-  MEDIUM: 'bg-yellow-100 text-yellow-700 border-yellow-200 dark:bg-yellow-900/30 dark:text-yellow-300',
-  HIGH: 'bg-red-100 text-red-700 border-red-200 dark:bg-red-900/30 dark:text-red-300',
+  LOW: 'bg-emerald-100/80 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800/40',
+  MEDIUM: 'bg-amber-100/80 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800/40',
+  HIGH: 'bg-rose-100/80 text-rose-700 border-rose-200 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-800/40',
+};
+
+export const CATEGORY_COLORS: Record<string, string> = {
+  Work: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-300',
+  Personal: 'bg-purple-100 text-purple-700 dark:bg-purple-950/40 dark:text-purple-300',
+  Study: 'bg-blue-100 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300',
+  Health: 'bg-teal-100 text-teal-700 dark:bg-teal-950/40 dark:text-teal-300',
+  General: 'bg-stone-100 text-stone-700 dark:bg-stone-800/60 dark:text-stone-300',
 };
 
 export const SIDEBAR_ITEMS = [
@@ -43,6 +64,10 @@ export const SIDEBAR_ITEMS = [
 ];
 
 export const ICONS = {
+  Inbox,
+  Calendar,
+  LayoutDashboard,
+  Star,
   Search,
   Plus,
   Moon,
@@ -54,6 +79,19 @@ export const ICONS = {
   Trash2,
   Edit2,
   Sparkles,
-  // Added CheckCircle2 to fix the property error in TaskList.tsx
-  CheckCircle2
+  CheckCircle2,
+  Eye,
+  EyeOff,
+  Cloud,
+  CloudOff,
+  Loader2,
+  Check,
+  Activity,
+  Filter,
+  Tag,
+  AlertCircle,
+  TrendingUp,
+  Clock,
+  ChevronLeft,
+  ChevronRight
 };

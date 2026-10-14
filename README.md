@@ -1,354 +1,262 @@
-<div align="center">
-
-# 📋 Lumina Task - Task Management
+# ✨ Lumina Task - Full-Stack Task Management
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-v16%2B-green?logo=node.js)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-v18%2B-green?logo=node.js)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-19-blue?logo=react)](https://react.dev)
+[![Express](https://img.shields.io/badge/Express-4.21-lightgrey?logo=express)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?logo=mongodb)](https://www.mongodb.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-6-purple?logo=vite)](https://vitejs.dev)
-[![Status](https://img.shields.io/badge/Status-Active-brightgreen)](https://github.com)
+
+An elegant, full-stack task management application built with the **MERN** stack (MongoDB, Express, React 19, Node.js) and TypeScript. Organize, prioritize, and track your tasks in a modern, responsive interface featuring dynamic dark mode, cloud synchronization, and offline fallback.
 
 ---
 
-An elegant, modern task management application. Organize, prioritize, and manage your tasks with powerful features in a beautiful, responsive interface.
-</div>
+## 🌟 Architecture Overview
+
+```
+                      ┌─────────────────────────────────────────┐
+                      │            Frontend (Netlify)           │
+                      │  React 19 + TypeScript + Vite + Tailwind │
+                      └────────────────────┬────────────────────┘
+                                           │
+                        REST API Requests  │  (JWT Authentication)
+                                           ▼
+                      ┌─────────────────────────────────────────┐
+                      │             Backend (Render)            │
+                      │          Node.js + Express API          │
+                      └────────────────────┬────────────────────┘
+                                           │
+                        Mongoose Driver    │  (TLS / SSL)
+                                           ▼
+                      ┌─────────────────────────────────────────┐
+                      │          Database (MongoDB Atlas)       │
+                      │             Free M0 Cluster             │
+                      └─────────────────────────────────────────┘
+```
+
+- **Frontend**: Hosted on **Netlify** with instant client-side routing, optimistic UI updates, and an in-app backend URL switcher.
+- **Backend**: Hosted on **Render** (Free Web Service) with automated CORS handling, bcrypt password hashing, and JWT tokens.
+- **Database**: **MongoDB Atlas** (Free M0 tier) cloud database.
+- **Offline / Local Fallback**: When the cloud backend is sleeping or offline, Lumina seamlessly saves data to browser `localStorage` and reconnects automatically.
+
+---
 
 ## ✨ Features
 
-### 🎯 Task Management
-- ✅ Create, edit, delete, and organize tasks with intuitive controls
-- 🏷️ Smart task labeling and categorization system
-- 📌 Pin important tasks for quick access
-- 🗑️ Soft delete with task recovery option
+- **🔐 Secure Authentication**: Register and login with hashed passwords (bcrypt) and signed JSON Web Tokens (JWT).
+- **📋 Full Task Lifecycle**: Create, edit, toggle completion, set priorities (`LOW`, `MEDIUM`, `HIGH`), and categorize (`Work`, `Personal`, `Study`, `Health`, `General`).
+- **📊 Productivity Analytics**: Live statistics showing Total, Completed, Due Today, High Priority, and Completion Rate percentage.
+- **🗓️ Interactive Calendar**: Monthly calendar view with task scheduling and priority indicators.
+- **🔍 Instant Search & Filters**: Real-time task search with safe regex matching and category pill filters.
+- **🌓 Adaptive Theme**: Automatic system theme detection with manual light/dark toggle and smooth transitions.
+- **🔌 In-App Backend Switcher**: Click the status indicator at any time to view, test, or update your live Render backend URL with zero redeployment required.
 
-### 💼 Smart Features
-- 🧠 Intelligent task suggestions
-- 💡 Auto-generate task descriptions and subtasks
-- 📝 Smart task prioritization recommendations
-- 🎨 Automatic task categorization
-
-### 📊 Views & Organization
-- 📥 **Inbox**: Manage all your tasks in one place
-- 📅 **Today**: Focus on today's priorities
-- 🗓️ **Calendar**: Visual task calendar for time management
-- ✔️ **Completed**: Review finished tasks
-
-### 🎨 User Experience
-- 🌓 Dark/Light Mode with seamless theme switching
-- 📱 Responsive Design that works on desktop and mobile
-- 🔍 Advanced Search & Filter capabilities
-- ⚡ Fast, smooth, and intuitive interface
-
-### 🔒 Data Management
-- 💾 Local Storage of all tasks and preferences
-- 👤 Authentication with user profiles
-- 🔐 Secure credential handling
-- 📊 Data persistence across sessions
+---
 
 ## 🛠 Tech Stack
 
-| Category | Technologies |
-|----------|---------------|
-| **Frontend Framework** | ![React](https://img.shields.io/badge/React-19-blue?logo=react) ![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?logo=typescript) |
-| **Build & Bundling** | ![Vite](https://img.shields.io/badge/Vite-6-purple?logo=vite) |
-| **Routing** | ![React Router](https://img.shields.io/badge/React%20Router-7-red?logo=react-router) |
-| **Styling** | ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-blue?logo=tailwindcss) |
-| **UI Components** | ![Lucide React](https://img.shields.io/badge/Lucide%20React-Icons-orange) |
-| **Utilities** | ![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-yellow?logo=javascript) |
-| **State Management** | ![React Hooks](https://img.shields.io/badge/React-Hooks-blue) |
-| **Storage** | ![LocalStorage](https://img.shields.io/badge/Browser-LocalStorage-yellow) |
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend Framework** | React 19, TypeScript 5.8 |
+| **Build & Tooling** | Vite 6 |
+| **Routing** | React Router DOM v7 (HashRouter for SPA hosting) |
+| **Icons & Styling** | Lucide React, Tailwind CSS |
+| **Backend Framework** | Node.js, Express.js (ES Modules) |
+| **Database & ODM** | MongoDB Atlas, Mongoose 8 |
+| **Authentication & Security** | JWT (`jsonwebtoken`), `bcryptjs`, CORS middleware |
+| **Deployment Targets** | Frontend on **Netlify**, Backend on **Render** |
 
-## 📋 Prerequisites
+---
 
-Before you begin, ensure you have the following installed:
+## 🚀 Local Development Setup
 
-- ✅ **Node.js** v16 or higher ([Download](https://nodejs.org/))
-- ✅ **npm** or **yarn** package manager
-- ✅ **Git** for version control
+### 1. Prerequisites
+- **Node.js** v18+ ([Download](https://nodejs.org/))
+- **MongoDB** (Local instance or MongoDB Atlas free connection URI)
 
-## 🚀 Quick Start
-
-### Step 1️⃣ Clone or Download Repository
+### 2. Clone Repository
 ```bash
-git clone https://github.com/yourusername/lumina-task.git
-cd lumina-task
+git clone https://github.com/yourusername/Lumina_Task.git
+cd Lumina_Task
 ```
 
-### Step 2️⃣ Install Dependencies
+### 3. Setup Backend
 ```bash
+cd server
 npm install
 ```
 
-### Step 3️⃣ (Optional) Configure Environment Variables
-Create a `.env.local` file if needed:
-
+Create a `.env` file in the `server/` directory:
 ```env
-# Add any custom environment variables here
+PORT=5000
+NODE_ENV=development
+MONGODB_URI=mongodb://127.0.0.1:27017/lumina_tasks
+JWT_SECRET=your_development_secret_key_12345
+FRONTEND_URL=http://localhost:3000
 ```
 
-### Step 4️⃣ Run Development Server
+Start the backend:
 ```bash
 npm run dev
+# Server runs on http://localhost:5000
 ```
 
-Access the app at: **http://localhost:3000**
-
-### Step 5️⃣ Build for Production
+### 4. Setup Frontend
+In the root project directory:
 ```bash
-npm run build
-```
-
-### Step 6️⃣ Preview Production Build
-```bash
-npm run preview
-```
-
-## 📂 Project Structure
-
-```
-lumina-task/
-│
-├── 📁 components/                 # React Components
-│   ├── Dashboard.tsx             # Main dashboard & task management hub
-│   ├── TaskList.tsx              # Task list view component
-│   ├── TaskCalendar.tsx          # Calendar view component
-│   ├── TaskModal.tsx             # Task creation/edit modal
-│   ├── Login.tsx                 # Authentication login component
-│   ├── Sidebar.tsx               # Navigation sidebar component
-│   └── LoadingScreen.tsx         # Loading animation component
-│
-├── 📁 services/                   # Business Logic
-│   └── storageService.ts         # LocalStorage data management
-│
-├── 📄 App.tsx                    # Root application component
-├── 📄 types.ts                   # TypeScript type definitions
-├── 📄 constants.tsx              # App constants & configurations
-├── 📄 index.tsx                  # Application entry point
-├── 📄 vite.config.ts             # Vite configuration
-├── 📄 tsconfig.json              # TypeScript configuration
-├── 📄 package.json               # Project dependencies
-├── 📄 index.html                 # HTML template
-└── 📄 README.md                  # This file
-```
-
-## 🎯 Key Components
-
-### 📊 **Dashboard** (`Dashboard.tsx`)
-The main application hub featuring:
-- 📈 Task management and organization
-- 🔄 Multi-view support (Inbox, Today, Calendar, Completed)
-- 🔍 Advanced filtering and search
-- 🎨 Theme switching interface
-
-### ➕ **TaskModal** (`TaskModal.tsx`)
-Modal dialog for task operations:
-- ➕ Create new tasks with AI assistance
-- ✏️ Edit existing task details
-- 🤖 AI-powered task suggestions
-- 📝 Rich text description support
-
-### 📋 **TaskList** & 📅 **TaskCalendar**
-Multiple visualization modes:
-- **TaskList**: Traditional list view with sorting options
-- **TaskCalendar**: Visual calendar representation of tasks
-
-### 🧭 **Sidebar** (`Sidebar.tsx`)
-Navigation component providing:
-- 🔗 Quick access to different views
-- 🏷️ Task filtering by priority and status
-- ⚙️ Settings and preferences
-- 👤 User profile management
-
-### 🔑 **Login** (`Login.tsx`)
-Authentication interface:
-- 👤 User account management
-- 🔐 Secure login system
-- 📝 User profile creation
-
-### 🎁 **Services**
-
-#### **storageService.ts** 💾
-Data persistence layer:
-- 📦 Task storage & retrieval
-- 👤 User session management
-- 🎨 Theme preferences
-- 🔒 Secure local storage
-
-## 🔐 Security Notes
-
-- 🔑 **API Keys**: Not required for basic functionality
-- 📦 **Local Storage**: User data stored securely in browser's LocalStorage
-- 🚀 **External Dependencies**: Minimal external service requirements
-- 🛡️ **No Sensitive Data**: Personal information never logged or transmitted
-- ✅ **Privacy First**: Full control of your data remains in your browser
-
-**No sensitive API keys required** for basic functionality!
-
-## 📝 Available Scripts
-
-```bash
-# Development
-npm run dev          # Start dev server (http://localhost:3000)
-
-# Production
-npm run build        # Build optimized bundle for production
-npm run preview      # Preview the production build locally
-```
-
-### Script Details
-
-| Command | Purpose | Output |
-|---------|---------|--------|
-| `npm run dev` | Start Vite dev server with hot reload | Serves at `http://localhost:3000` |
-| `npm run build` | Create optimized production bundle | Generates `dist/` folder |
-| `npm run preview` | Preview production build locally | Serves optimized build for testing |
-
-## 🎨 Theme Support
-
-Lumina Task features intelligent theme management:
-
-- 🌓 **Auto Detection**: Automatically detects your system theme preference
-- 🎨 **Manual Toggle**: Easy switch between light and dark modes
-- 💾 **Persistence**: Your theme preference is saved to localStorage
-- 🌙 **Dark Mode**: Comfortable viewing in low-light environments
-- ☀️ **Light Mode**: Optimal for daytime use
-
-**Theme Behavior:**
-```
-System Preference: Yes → Auto Dark Mode
-Manual Toggle: Override system preference
-localStorage: Persist across sessions
-```
-
-## 🔄 Data Persistence
-
-All user data is stored locally in the browser with no external synchronization:
-
-### What Gets Saved
-- ✅ Tasks and task details (title, description, priority, dates)
-- ✅ User preferences (theme, view settings, filters)
-- ✅ User login information and profiles
-- ✅ Task completion status and history
-
-### Storage Details
-```
-Location: Browser LocalStorage
-Scope: Per-domain/per-origin
-Persistence: Across browser sessions
-Backup: None (local only)
-```
-
-**Important:** Data is not synced across devices or browsers. Clear your browser data at your own risk!
-
-## 🐛 Troubleshooting
-
-### ❌ Port 3000 Already in Use
-**Error:** `Port 3000 is already in use`
-
-**Solution:**
-```bash
-# Try a different port
-npm run dev -- --port 3001
-
-# Or kill the process using port 3000
-npx kill-port 3000
-```
-
-### ❌ Tasks Not Loading
-**Error:** `Tasks not displaying correctly`
-
-**Checklist:**
-- ✅ Check browser console for JavaScript errors (F12)
-- ✅ Verify LocalStorage is enabled in browser
-- ✅ Clear browser cache and reload
-- ✅ Try a different browser to isolate the issue
-
-### ❌ Dependencies Installation Fails
-**Error:** `npm ERR! ...`
-
-**Solution:**
-```bash
-# Clear cache and reinstall
-rm -rf node_modules package-lock.json
-npm cache clean --force
+cd ..
 npm install
 ```
 
-### ❌ Build Fails
-**Error:** `vite build` fails with TypeScript errors
-
-**Solution:**
-```bash
-# Check for TypeScript errors
-npx tsc --noEmit
-
-# Fix TypeScript issues and rebuild
-npm run build
+Create a `.env` file in the root directory:
+```env
+VITE_API_URL=http://localhost:5000/api
 ```
 
-### ❌ Dark Mode Not Working
-**Solution:**
-- Clear browser cache and localStorage
-- Check browser supports CSS variables
-- Verify Tailwind CSS is properly configured in `vite.config.ts`
+Start the frontend:
+```bash
+npm run dev
+# Frontend runs on http://localhost:3000
+```
 
-### ❌ Tasks Not Persisting
-**Solution:**
-- Check if localStorage is enabled in browser settings
-- Verify private/incognito mode is not being used
-- Check browser console for errors (F12 → Console tab)
+---
+
+## ☁️ Free Cloud Hosting Guide
+
+### Step 1: Create Free Database (MongoDB Atlas)
+1. Sign up for a free account at [mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas).
+2. Create a new database deployment selecting the **M0 (Free)** tier.
+3. Under **Security**:
+   - **Database Access**: Create a username and password (e.g., `lumina_user` and your password).
+   - **Network Access**: Add `0.0.0.0/0` (Allow access from anywhere) so Render can reach the database.
+4. Click **Connect** → **Drivers** (Node.js) and copy the connection string:
+   ```
+   mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/lumina_tasks?retryWrites=true&w=majority
+   ```
+
+---
+
+### Step 2: Deploy Backend for Free (Render)
+1. Push your repository to GitHub.
+2. Sign in to [render.com](https://render.com) using your GitHub account.
+3. Click **New +** → **Web Service** and choose your repository.
+4. Fill in the service configuration:
+   - **Name**: `lumina-task-backend`
+   - **Root Directory**: `server`
+   - **Environment**: `Node`
+   - **Build Command**: `npm install`
+   - **Start Command**: `node server.js`
+   - **Instance Type**: **Free**
+5. Add the following **Environment Variables**:
+   | Variable | Value | Description |
+   | :--- | :--- | :--- |
+   | `NODE_ENV` | `production` | Production mode |
+   | `MONGODB_URI` | `mongodb+srv://...` | Your MongoDB Atlas connection URI |
+   | `JWT_SECRET` | *(Click Generate or enter secret)* | Secret key for JWT auth |
+   | `FRONTEND_URL` | `https://<your-netlify-site>.netlify.app` | Netlify frontend URL |
+6. Click **Deploy Web Service**.
+7. Once deployed, Render provides your public backend URL:
+   ```
+   https://lumina-task-backend-xxxx.onrender.com
+   ```
+   Test it in your browser: `https://<your-render-url>/api/health` should return `{"status":"OK", "database":{"connected":true}}`.
+
+> [!NOTE]
+> **Render Free Tier Spin-Down**: Free instances on Render spin down after 15 minutes of inactivity. When you open the app after idle time, the backend takes ~35–50 seconds to wake up. The frontend includes a built-in 60s timeout and a waking-up indicator to handle this smoothly.
+
+---
+
+### Step 3: Connect Netlify Frontend to Render Backend
+
+You have two ways to link your hosted Netlify frontend:
+
+#### Method A: Netlify Environment Variable (Recommended)
+1. In your [Netlify Dashboard](https://app.netlify.com), navigate to your site.
+2. Go to **Site configuration** → **Environment variables**.
+3. Add a variable:
+   - **Key**: `VITE_API_URL`
+   - **Value**: `https://<your-render-service>.onrender.com/api`
+4. Go to **Deploys** → **Trigger deploy** → **Deploy site** to rebuild with the new endpoint.
+
+#### Method B: Instant In-App Connector (No Rebuild Required)
+1. Open your live Netlify app in the browser.
+2. Click the status badge in the **Login page** or **Dashboard header** (`Local Mode • Click to Config API`).
+3. Paste your Render backend URL (e.g. `https://lumina-task-backend-xxxx.onrender.com`).
+4. Click **Save & Test Connection**. The app tests connection health, syncs your tasks, and stores the endpoint in your browser.
+
+---
+
+## 📡 API Reference
+
+Base URL: `/api` (or `https://<your-backend>.onrender.com/api`)
+
+### Health
+| Method | Endpoint | Description | Auth Required |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/health` | Service status, uptime, and MongoDB status | No |
+| `GET` | `/api` | API directory and available routes | No |
+
+### Authentication
+| Method | Endpoint | Description | Auth Required |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/auth/register` | Register new user account (`name`, `email`, `password`) | No |
+| `POST` | `/api/auth/login` | Authenticate user & receive JWT token | No |
+| `GET` | `/api/auth/me` | Fetch authenticated user profile | Yes (Bearer) |
+
+### Tasks
+| Method | Endpoint | Description | Auth Required |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/tasks` | Fetch tasks (Supports `?view=`, `?priority=`, `?search=`) | Yes (Bearer) |
+| `POST` | `/api/tasks` | Create task (`title`, `description`, `dueDate`, `priority`, `category`) | Yes (Bearer) |
+| `PUT` | `/api/tasks/:id` | Update existing task | Yes (Bearer) |
+| `PATCH` | `/api/tasks/:id/toggle` | Toggle task completion status | Yes (Bearer) |
+| `DELETE` | `/api/tasks/:id` | Delete task by ID | Yes (Bearer) |
+| `GET` | `/api/tasks/stats` | Aggregate task metrics (total, completed, due today) | Yes (Bearer) |
+
+---
+
+## 📂 Project Directory Structure
+
+```
+Lumina_Task/
+├── components/                 # React UI Components
+│   ├── Dashboard.tsx           # Main workspace & analytics hub
+│   ├── Login.tsx               # Auth form with in-app backend switcher
+│   ├── Sidebar.tsx             # Navigation & filter sidebar
+│   ├── TaskCalendar.tsx        # Month grid calendar view
+│   ├── TaskList.tsx            # Interactive task list with priority badges
+│   ├── TaskModal.tsx           # Create / Edit task dialog
+│   └── LoadingScreen.tsx       # Initial loading view
+├── public/
+│   └── _redirects              # Netlify SPA redirect rules (/* -> /index.html)
+├── server/                     # Node.js Express Backend
+│   ├── middleware/
+│   │   └── auth.js             # JWT bearer verification middleware
+│   ├── models/
+│   │   ├── Task.js             # Mongoose Task schema
+│   │   └── User.js             # Mongoose User schema & password hashing
+│   ├── routes/
+│   │   ├── auth.js             # Auth endpoints (/api/auth)
+│   │   └── tasks.js            # Task CRUD endpoints (/api/tasks)
+│   ├── .env.example            # Sample backend environment configuration
+│   ├── package.json            # Backend dependencies
+│   └── server.js               # Express entrypoint & MongoDB connection
+├── services/
+│   ├── api.ts                  # Fetch API client with 60s Render timeout
+│   └── storageService.ts       # Hybrid Cloud API + LocalStorage cache
+├── App.tsx                     # Application route controller
+├── index.html                  # HTML template with Tailwind config
+├── index.css                   # Custom scrollbars, animations, color tokens
+├── render.yaml                 # Render Blueprint specification
+├── types.ts                    # TypeScript interfaces & enums
+├── vite-env.d.ts               # Vite environment type declarations
+├── vite.config.ts              # Vite bundler config
+└── package.json                # Frontend dependencies
+```
+
+---
 
 ## 📄 License
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-Licensed under the MIT License - see [LICENSE](LICENSE) file for details
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how you can help:
-
-### Report Issues
-- 🐛 Found a bug? [Open an issue](../../issues)
-- 💡 Have a suggestion? [Start a discussion](../../discussions)
-
-### Submit Changes
-1. 🍴 Fork the repository
-2. 🌱 Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. 📝 Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. 🚀 Push to the branch (`git push origin feature/AmazingFeature`)
-5. 📬 Open a Pull Request
-
-### Development Guidelines
-- Write clean, readable code
-- Add comments for complex logic
-- Test your changes thoroughly
-- Update documentation as needed
-- Follow existing code style
-
----
-
-## 📚 Additional Resources
-
-- [React Documentation](https://react.dev)
-- [Vite Guide](https://vitejs.dev)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Web APIs Documentation](https://developer.mozilla.org/en-US/docs/Web/API)
-
----
-
-<div align="center">
-
-### Made with ❤️
-
-[⬆ Back to Top](#-lumina-task---ai-powered-task-management)
-
-![GitHub Stars](https://img.shields.io/github/stars/yourusername/lumina-task?style=social)
-![GitHub Forks](https://img.shields.io/github/forks/yourusername/lumina-task?style=social)
-![GitHub Issues](https://img.shields.io/github/issues/yourusername/lumina-task?style=social)
-
-</div>
+This project is licensed under the [MIT License](LICENSE).
