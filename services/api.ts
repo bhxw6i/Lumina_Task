@@ -28,7 +28,7 @@ export const getApiUrl = (): string => {
   }
 
   // 4. Default for production fallback
-  return 'http://localhost:5000/api';
+  return 'https://lumina-task-backend.onrender.com/api';
 };
 
 const TOKEN_KEY = 'lumina_auth_token';
